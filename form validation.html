@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        fieldset{
+            margin-left: 347px;
+    margin-right: 340px;
+        }
+    </style>
+    </head>
+<body>
+    
+    <script language="javascript" text="text/javascript">
+    function validateForm()
+    {
+        var x = document.forms["fname"]["name"].value;
+        if (x == ""){
+            alert("Name is mandatory. ");
+            return false;
+        }
+        var y = document.forms["fname"]["uname"].value;
+        if (y == ""){
+            alert("Username is mandatory.");
+            return false;
+        }
+        var t = document.forms["fname"]["email"].value;
+        if (t == ""){
+            alert("Email Id is mandatory.");
+            return false;
+        }
+        var c=document.getElementById("contact")
+           if(c.value==""||isNaN(c.value) ||c.value.length>10||c.value.length<10){
+            document.getElementById("cont").innerHTML="Contact no must be 10 digits";
+            return false;
+           }
+           var mail=document.getElementById("email").value
+          var regex=/^([a-z A-Z 0-9\ ._]+)@([a-z A-Z]+).([a-z A-Z]{2,6})$/
+          if((regex.test(mail))){
+            alert("Your mail id is correct")
+            return true;
+          }
+          else{
+            document.getElementById("mail").innerHTML="Enter valid email";
+            return false;
+          }
+        var a = document.forms["fname"]["pwd"].value;
+        var z = document.forms["fname"]["cpwd"].value;
+        if (z != a){
+            alert("Incorrect Confirm Password.");
+            return false;
+        }
+        function buttons(){
+            document.getElementById("demo").innerHTML=x + y + t +c +mail +a +z;
+        }
+    }
+    </script>
+    <form name="fname" id="fname" action="/action_page.php" onsubmit="return validateForm()" method="post" autocomplete="off">
+   <fieldset>
+    <legend style="font-weight:800;">Form Validation</legend>
+    <br/>
+     Name: <input type="text" name="name" style="margin-left: 123px;">
+    <br/>
+    <br/>
+     Username: <input type="uname" name="uname" style="margin-left: 97px;">
+     <br/>
+     <br/>
+     Password: <input type="password" name="pwd" style="margin-left: 101px;">
+     <br/>
+    <br/>
+    Re-type Password: <input type="password" name="cpwd" style="margin-left: 47px;">
+    <br/>
+    <br/>
+    Gender: <input type="radio" name="gender" style="margin-left: 121px;">
+    Male <input type="radio" name="gender"> Female <input type="radio" name="gender"> Other
+    <br/>
+    <br/>
+    Programming skills: <input type="checkbox" name="skills" id="skills" style="margin-left: 43px;">Java <input type="checkbox" name="skills" id="skills" >Android <input type="checkbox" name="skills" id="skills" >Ruby <input type="checkbox" name="skills" id="skills">.Net
+    <br/>
+    <br/>
+    Contact no:<input type="text" name="contact" id="contact" style="margin-left: 97px;"><p id="cont" style="margin-left: 361px;
+    margin-top: -24px;
+    color: red"></p>
+    <br/>
+    Email <input type="text" name="email" id="email" style="margin-left: 130px;"><p id="mail" style="margin-left: 361px;
+    margin-top: -24px;
+    color: red"></p>
+    <br/>
+   College <select style="margin-left: 119px;
+   width: 117px;
+   height: 20px;">
+    <option>SVIT</option>
+     <option>SRM</option>
+     <option>CEG</option>
+     <option>GCE Dpi</option>
+   </select>
+    <br/>
+    <br/>
+   <button type="submit" value="Submit" name="btn" id="btn" style="margin-left: 171px;
+   width: 66px;
+   height: 25px;
+   color: black;" onclick="buttons()">Submit</button>
+   <p id="demo"></p>
+</fieldset>
+</form>
+</body>
+</html>
